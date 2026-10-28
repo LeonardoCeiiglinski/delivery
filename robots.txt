@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://delivery.lojadeeletronicossaojose.com.br/sitemap.xml
