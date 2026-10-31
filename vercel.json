@@ -1,61 +1,28 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
   "buildCommand": null,
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    {
-      "source": "/",
-      "destination": "/vitrine",
-      "permanent": true
-    }
+    { "source": "/", "destination": "/vitrine", "permanent": true }
   ],
   "headers": [
     {
-      "source": "/img/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    },
-    {
       "source": "/(.*)",
       "headers": [
-        {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        },
-        {
-          "key": "Referrer-Policy",
-          "value": "strict-origin-when-cross-origin"
-        },
-        {
-          "key": "X-Frame-Options",
-          "value": "SAMEORIGIN"
-        },
-        {
-          "key": "Permissions-Policy",
-          "value": "camera=(), microphone=(), geolocation=()"
-        }
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
       ]
     },
     {
       "source": "/vitrine",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, s-maxage=300, must-revalidate"
-        }
-      ]
-    }
-  ],
-  "rewrites": [
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=0, s-maxage=300, must-revalidate" }]
+    },
     {
-      "source": "/img/:file",
-      "destination": "/:file"
+      "source": "/entrega",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=0, s-maxage=300, must-revalidate" }]
     }
   ]
 }

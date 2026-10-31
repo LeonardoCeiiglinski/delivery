@@ -4,21 +4,45 @@
 <meta charset="utf-8">
 <script>
 window.dataLayer = window.dataLayer || [];
+var GTM_ID = 'GTM-XXXXXXX';
 (function(w,d,s,l,i){
-  if(!/^GTM-[A-Z0-9]{4,}$/.test(i) || i==='GTM-XXXXXXX') return;
+  if(!/^GTM-[A-Z0-9]{4,}$/.test(i) || i==='GTM-'+'XXXXXXX') return;
   w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
   var f=d.getElementsByTagName(s)[0], j=d.createElement(s);
   j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id='+i;
   f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-XXXXXXX');
+})(window,document,'script','dataLayer',GTM_ID);
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18541289170"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-18541289170');
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 <title>SmartPlanet | Acessórios para celular em São José, SC</title>
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-96x96.png" type="image/png" sizes="96x96">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="description" content="Capinhas, películas, carregadores, cabos e fones em São José, SC. Peça pelo WhatsApp e receba em até 4 horas na Grande Florianópolis.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://delivery.lojadeeletronicossaojose.com.br/vitrine">
 <meta name="theme-color" content="#000000">
 <meta name="color-scheme" content="dark">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="SmartPlanet A Boutique do Celular">
+<meta property="og:title" content="SmartPlanet | Acessórios para celular em São José, SC">
+<meta property="og:description" content="Capinhas, películas, carregadores, cabos e fones em São José, SC. Peça pelo WhatsApp e receba em até 4 horas na Grande Florianópolis.">
+<meta property="og:url" content="https://delivery.lojadeeletronicossaojose.com.br/vitrine">
+<meta property="og:image" content="https://delivery.lojadeeletronicossaojose.com.br/fachada-smartplanet-sao-jose.webp">
+<meta property="og:image:width" content="800">
+<meta property="og:image:height" content="600">
+<meta property="og:image:alt" content="Fachada da loja SmartPlanet em Campinas, São José">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
@@ -161,8 +185,8 @@ h1[data-msg]:active,h2[data-msg]:active,.sub[data-msg]:active,.faixa[data-msg]:a
    "description": "Loja de acessórios para celular: capinhas, películas, carregadores, cabos USB, fones bluetooth e controle de PS3.",
    "telephone": "+55 48 99662-8811",
    "image": [
-    "https://delivery.lojadeeletronicossaojose.com.br/img/fachada-smartplanet-sao-jose.webp",
-    "https://delivery.lojadeeletronicossaojose.com.br/img/loja-smartplanet-corredor.webp"
+    "https://delivery.lojadeeletronicossaojose.com.br/fachada-smartplanet-sao-jose.webp",
+    "https://delivery.lojadeeletronicossaojose.com.br/loja-smartplanet-corredor.webp"
    ],
    "address": {
     "@type": "PostalAddress",
@@ -202,7 +226,7 @@ h1[data-msg]:active,h2[data-msg]:active,.sub[data-msg]:active,.faixa[data-msg]:a
   <p class="sub">Capinhas, películas, carregadores e fones. Peça pelo WhatsApp e receba em até 4 horas.</p>
   <a class="btn" data-msg="Olá! Vi o site da SmartPlanet e quero fazer um pedido." href="https://wa.me/5548996628811?text=Ol%C3%A1%21%20Vi%20o%20site%20da%20SmartPlanet%20e%20quero%20fazer%20um%20pedido."><svg aria-hidden="true"><use href="#i-wa"/></svg>Pedir pelo WhatsApp</a>
   <div class="foto">
-    <img src="img/loja-smartplanet-corredor.webp" alt="Corredor da loja SmartPlanet com carregadores, capinhas e películas" width="1200" height="900" fetchpriority="high">
+    <img src="/loja-smartplanet-corredor.webp" alt="Corredor da loja SmartPlanet com carregadores, capinhas e películas" width="1200" height="900" fetchpriority="high">
   </div>
 </header>
 
@@ -214,43 +238,43 @@ h1[data-msg]:active,h2[data-msg]:active,.sub[data-msg]:active,.faixa[data-msg]:a
   <ul class="grade">
     <li><article class="card">
       <div class="foto carrossel" tabindex="0" aria-label="Fotos de carregadores para iPhone, deslize para o lado">
-        <img src="img/carregador-iphone-lightning-60w.webp" alt="Carregador completo para iPhone com cabo Lightning, 60W" width="600" height="600" loading="lazy">
-        <img src="img/carregador-iphone-usb-c-30w.webp" alt="Carregador completo USB-C 30W para iPhone 16 Pro" width="600" height="600" loading="lazy">
+        <img src="/carregador-iphone-lightning-60w.webp" alt="Carregador completo para iPhone com cabo Lightning, 60W" width="600" height="600" loading="lazy">
+        <img src="/carregador-iphone-usb-c-30w.webp" alt="Carregador completo USB-C 30W para iPhone 16 Pro" width="600" height="600" loading="lazy">
       </div>
       <div class="info"><h3>Carregador iPhone</h3><p class="preco">a partir de R$X</p>
         <a class="btn peq" data-msg="Olá! Vi no site e quero o carregador de iPhone." href="https://wa.me/5548996628811?text=Ol%C3%A1%21%20Vi%20no%20site%20e%20quero%20o%20carregador%20de%20iPhone.">Pedir no WhatsApp</a></div>
     </article></li>
     <li><article class="card">
       <div class="foto carrossel" tabindex="0" aria-label="Fotos de cabos USB, deslize para o lado">
-        <img src="img/cabo-usb-a-tipo-c.webp" alt="Cabo de dados rápido USB para Tipo-C" width="600" height="600" loading="lazy">
-        <img src="img/cabo-tipo-c-lightning.webp" alt="Cabos de carregamento turbo Tipo-C para Tipo-C e Tipo-C para Lightning" width="600" height="600" loading="lazy">
-        <img src="img/cabo-tipo-c-1-metro-60w.webp" alt="Cabo Tipo-C para Tipo-C de 1 metro, 60W" width="600" height="600" loading="lazy">
+        <img src="/cabo-usb-a-tipo-c.webp" alt="Cabo de dados rápido USB para Tipo-C" width="600" height="600" loading="lazy">
+        <img src="/cabo-tipo-c-lightning.webp" alt="Cabos de carregamento turbo Tipo-C para Tipo-C e Tipo-C para Lightning" width="600" height="600" loading="lazy">
+        <img src="/cabo-tipo-c-1-metro-60w.webp" alt="Cabo Tipo-C para Tipo-C de 1 metro, 60W" width="600" height="600" loading="lazy">
       </div>
       <div class="info"><h3>Cabo USB</h3><p class="preco">a partir de R$X</p>
         <a class="btn peq" data-msg="Olá! Vi no site e quero o cabo USB." href="https://wa.me/5548996628811?text=Ol%C3%A1%21%20Vi%20no%20site%20e%20quero%20o%20cabo%20USB.">Pedir no WhatsApp</a></div>
     </article></li>
     <li><article class="card">
-      <div class="foto"><img src="img/fones-bluetooth-loja.webp" alt="Fones bluetooth e fones sem fio na parede da loja" width="500" height="500" loading="lazy"></div>
+      <div class="foto"><img src="/fones-bluetooth-loja.webp" alt="Fones bluetooth e fones sem fio na parede da loja" width="500" height="500" loading="lazy"></div>
       <div class="info"><h3>Fone bluetooth</h3><p class="preco">a partir de R$X</p>
         <a class="btn peq" data-msg="Olá! Vi no site e quero o fone bluetooth." href="https://wa.me/5548996628811?text=Ol%C3%A1%21%20Vi%20no%20site%20e%20quero%20o%20fone%20bluetooth.">Pedir no WhatsApp</a></div>
     </article></li>
     <li><article class="card">
       <div class="foto carrossel" tabindex="0" aria-label="Fotos de capinhas de iPhone, deslize para o lado">
-        <img src="img/capinha-iphone-magsafe-azul.webp" alt="Capinha transparente com borda azul e anel MagSafe para iPhone" width="600" height="600" loading="lazy">
-        <img src="img/capinha-iphone-preta-brilhantes.webp" alt="Capinha preta com brilhantes para iPhone" width="600" height="600" loading="lazy">
-        <img src="img/capinha-iphone-transparente-grafite.webp" alt="Capinha transparente com borda grafite para iPhone" width="600" height="600" loading="lazy">
-        <img src="img/capinha-iphone-transparente-anel-preto.webp" alt="Capinha transparente com anel MagSafe preto para iPhone" width="600" height="600" loading="lazy">
+        <img src="/capinha-iphone-magsafe-azul.webp" alt="Capinha transparente com borda azul e anel MagSafe para iPhone" width="600" height="600" loading="lazy">
+        <img src="/capinha-iphone-preta-brilhantes.webp" alt="Capinha preta com brilhantes para iPhone" width="600" height="600" loading="lazy">
+        <img src="/capinha-iphone-transparente-grafite.webp" alt="Capinha transparente com borda grafite para iPhone" width="600" height="600" loading="lazy">
+        <img src="/capinha-iphone-transparente-anel-preto.webp" alt="Capinha transparente com anel MagSafe preto para iPhone" width="600" height="600" loading="lazy">
       </div>
       <div class="info"><h3>Capinha iPhone</h3><p class="preco">a partir de R$X</p>
         <a class="btn peq" data-msg="Olá! Vi no site e quero a capinha de iPhone." href="https://wa.me/5548996628811?text=Ol%C3%A1%21%20Vi%20no%20site%20e%20quero%20a%20capinha%20de%20iPhone.">Pedir no WhatsApp</a></div>
     </article></li>
     <li><article class="card">
-      <div class="foto"></div>
+      <div class="foto"><img src="/mural-capinhas-loja.webp" alt="Mural de capinhas da loja SmartPlanet" width="480" height="480" loading="lazy"></div>
       <div class="info"><h3>Capinha Android</h3><p class="preco">a partir de R$X</p>
         <a class="btn peq" data-msg="Olá! Vi no site e quero a capinha de Android." href="https://wa.me/5548996628811?text=Ol%C3%A1%21%20Vi%20no%20site%20e%20quero%20a%20capinha%20de%20Android.">Pedir no WhatsApp</a></div>
     </article></li>
     <li><article class="card">
-      <div class="foto"></div>
+      <div class="foto"><img src="/mural-peliculas-loja.webp" alt="Mural de capas e películas da loja SmartPlanet" width="480" height="480" loading="lazy"></div>
       <div class="info"><h3>Película</h3><p class="preco">a partir de R$X</p>
         <a class="btn peq" data-msg="Olá! Vi no site e quero a película." href="https://wa.me/5548996628811?text=Ol%C3%A1%21%20Vi%20no%20site%20e%20quero%20a%20pel%C3%ADcula.">Pedir no WhatsApp</a></div>
     </article></li>
@@ -258,14 +282,18 @@ h1[data-msg]:active,h2[data-msg]:active,.sub[data-msg]:active,.faixa[data-msg]:a
   <p class="extra">Tem controle de PS3 e outros acessórios. <a data-msg="Olá! Vi no site e quero saber sobre outros acessórios." href="https://wa.me/5548996628811?text=Ol%C3%A1%21%20Vi%20no%20site%20e%20quero%20saber%20sobre%20outros%20acess%C3%B3rios.">Chama no WhatsApp e pergunta.</a></p>
   <h3 class="rail-t">Outros acessórios</h3>
   <ul class="rail">
-    <li><a data-msg="Olá! Vi no site e quero o power bank." href="https://wa.me/5548996628811?text=Ol%C3%A1%21%20Vi%20no%20site%20e%20quero%20o%20power%20bank."><img src="img/power-bank-portatil-cabos.webp" alt="Power bank portátil com cabos embutidos" width="480" height="480" loading="lazy"><span>Power bank</span></a></li>
-    <li><a data-msg="Olá! Vi no site e quero o power bank." href="https://wa.me/5548996628811?text=Ol%C3%A1%21%20Vi%20no%20site%20e%20quero%20o%20power%20bank."><img src="img/power-bank-cabos-embutidos.webp" alt="Power bank de alta capacidade com quatro cabos" width="480" height="480" loading="lazy"><span>Power bank</span></a></li>
-    <li><a data-msg="Olá! Vi no site e quero o carregador veicular." href="https://wa.me/5548996628811?text=Ol%C3%A1%21%20Vi%20no%20site%20e%20quero%20o%20carregador%20veicular."><img src="img/carregador-veicular-55w.webp" alt="Carregador veicular turbo 55W com três saídas" width="480" height="480" loading="lazy"><span>Carregador veicular</span></a></li>
-    <li><a data-msg="Olá! Vi no site e quero o carregador veicular." href="https://wa.me/5548996628811?text=Ol%C3%A1%21%20Vi%20no%20site%20e%20quero%20o%20carregador%20veicular."><img src="img/carregador-veicular-48w.webp" alt="Carregador veicular turbo 48W com duas portas" width="480" height="480" loading="lazy"><span>Carregador veicular</span></a></li>
-    <li><a data-msg="Olá! Vi no site e quero o suporte para carro." href="https://wa.me/5548996628811?text=Ol%C3%A1%21%20Vi%20no%20site%20e%20quero%20o%20suporte%20para%20carro."><img src="img/suporte-celular-carro-ventosa.webp" alt="Suporte universal de celular para carro com ventosa" width="480" height="480" loading="lazy"><span>Suporte para carro</span></a></li>
-    <li><a data-msg="Olá! Vi no site e quero o suporte para carro." href="https://wa.me/5548996628811?text=Ol%C3%A1%21%20Vi%20no%20site%20e%20quero%20o%20suporte%20para%20carro."><img src="img/suporte-celular-carro-painel.webp" alt="Suporte veicular de celular com rotação 360 graus" width="480" height="480" loading="lazy"><span>Suporte para carro</span></a></li>
-    <li><a data-msg="Olá! Vi no site e quero o suporte para moto." href="https://wa.me/5548996628811?text=Ol%C3%A1%21%20Vi%20no%20site%20e%20quero%20o%20suporte%20para%20moto."><img src="img/suporte-celular-moto-retrovisor.webp" alt="Suporte de celular para moto fixado no retrovisor" width="480" height="480" loading="lazy"><span>Suporte para moto</span></a></li>
-    <li><a data-msg="Olá! Vi no site e quero o suporte magnético para painel." href="https://wa.me/5548996628811?text=Ol%C3%A1%21%20Vi%20no%20site%20e%20quero%20o%20suporte%20magn%C3%A9tico%20para%20painel."><img src="img/suporte-magnetico-painel.webp" alt="Suporte magnético de celular para painel do carro" width="480" height="480" loading="lazy"><span>Suporte magnético</span></a></li>
+    <li><a data-msg="Olá! Vi no site e quero o power bank." href="https://wa.me/5548996628811?text=Ol%C3%A1%21%20Vi%20no%20site%20e%20quero%20o%20power%20bank."><img src="/power-bank-portatil-cabos.webp" alt="Power bank portátil com cabos embutidos" width="480" height="480" loading="lazy"><span>Power bank</span></a></li>
+    <li><a data-msg="Olá! Vi no site e quero o power bank." href="https://wa.me/5548996628811?text=Ol%C3%A1%21%20Vi%20no%20site%20e%20quero%20o%20power%20bank."><img src="/power-bank-cabos-embutidos.webp" alt="Power bank de alta capacidade com quatro cabos" width="480" height="480" loading="lazy"><span>Power bank</span></a></li>
+    <li><a data-msg="Olá! Vi no site e quero o carregador veicular." href="https://wa.me/5548996628811?text=Ol%C3%A1%21%20Vi%20no%20site%20e%20quero%20o%20carregador%20veicular."><img src="/carregador-veicular-55w.webp" alt="Carregador veicular turbo 55W com três saídas" width="480" height="480" loading="lazy"><span>Carregador veicular</span></a></li>
+    <li><a data-msg="Olá! Vi no site e quero o carregador veicular." href="https://wa.me/5548996628811?text=Ol%C3%A1%21%20Vi%20no%20site%20e%20quero%20o%20carregador%20veicular."><img src="/carregador-veicular-48w.webp" alt="Carregador veicular turbo 48W com duas portas" width="480" height="480" loading="lazy"><span>Carregador veicular</span></a></li>
+    <li><a data-msg="Olá! Vi no site e quero o suporte para carro." href="https://wa.me/5548996628811?text=Ol%C3%A1%21%20Vi%20no%20site%20e%20quero%20o%20suporte%20para%20carro."><img src="/suporte-celular-carro-ventosa.webp" alt="Suporte universal de celular para carro com ventosa" width="480" height="480" loading="lazy"><span>Suporte para carro</span></a></li>
+    <li><a data-msg="Olá! Vi no site e quero o suporte para carro." href="https://wa.me/5548996628811?text=Ol%C3%A1%21%20Vi%20no%20site%20e%20quero%20o%20suporte%20para%20carro."><img src="/suporte-celular-carro-painel.webp" alt="Suporte veicular de celular com rotação 360 graus" width="480" height="480" loading="lazy"><span>Suporte para carro</span></a></li>
+    <li><a data-msg="Olá! Vi no site e quero o suporte para moto." href="https://wa.me/5548996628811?text=Ol%C3%A1%21%20Vi%20no%20site%20e%20quero%20o%20suporte%20para%20moto."><img src="/suporte-celular-moto-retrovisor.webp" alt="Suporte de celular para moto fixado no retrovisor" width="480" height="480" loading="lazy"><span>Suporte para moto</span></a></li>
+    <li><a data-msg="Olá! Vi no site e quero o suporte magnético para painel." href="https://wa.me/5548996628811?text=Ol%C3%A1%21%20Vi%20no%20site%20e%20quero%20o%20suporte%20magn%C3%A9tico%20para%20painel."><img src="/suporte-magnetico-painel.webp" alt="Suporte magnético de celular para painel do carro" width="480" height="480" loading="lazy"><span>Suporte magnético</span></a></li>
+    <li><a data-msg="Olá! Vi no site e quero o suporte para moto." href="https://wa.me/5548996628811?text=Ol%C3%A1%21%20Vi%20no%20site%20e%20quero%20o%20suporte%20para%20moto."><img src="/suporte-moto-itblue.webp" alt="Suporte universal de celular para moto e bicicleta" width="480" height="480" loading="lazy"><span>Suporte para moto</span></a></li>
+    <li><a data-msg="Olá! Vi no site e quero o carregador turbo." href="https://wa.me/5548996628811?text=Ol%C3%A1%21%20Vi%20no%20site%20e%20quero%20o%20carregador%20turbo."><img src="/carregador-hmaston-140w.webp" alt="Carregador turbo 140W com três saídas" width="480" height="480" loading="lazy"><span>Carregador turbo</span></a></li>
+    <li><a data-msg="Olá! Vi no site e quero o carregador turbo Tipo-C." href="https://wa.me/5548996628811?text=Ol%C3%A1%21%20Vi%20no%20site%20e%20quero%20o%20carregador%20turbo%20Tipo-C."><img src="/carregador-hmaston-60w-tipo-c.webp" alt="Carregador turbo 60W com cabo Tipo-C" width="480" height="480" loading="lazy"><span>Carregador Tipo-C</span></a></li>
+    <li><a data-msg="Olá! Vi no site e quero o power bank." href="https://wa.me/5548996628811?text=Ol%C3%A1%21%20Vi%20no%20site%20e%20quero%20o%20power%20bank."><img src="/power-bank-eletro-visor.webp" alt="Power bank de alta capacidade com visor de carga" width="480" height="480" loading="lazy"><span>Power bank</span></a></li>
   </ul>
 </section>
 
@@ -291,9 +319,9 @@ h1[data-msg]:active,h2[data-msg]:active,.sub[data-msg]:active,.faixa[data-msg]:a
 <section class="wrap" id="loja">
   <h2>Nossa loja</h2>
   <div class="loja-fotos">
-    <div class="foto"><img src="img/fachada-smartplanet-sao-jose.webp" alt="Fachada da loja SmartPlanet" width="800" height="600" loading="lazy"></div>
-    <div class="foto"><img src="img/loja-smartplanet-capas-peliculas.webp" alt="Parede de capas e películas da loja SmartPlanet" width="800" height="600" loading="lazy"></div>
-    <div class="foto"><img src="img/loja-smartplanet-linha-gamer.webp" alt="Linha gamer da SmartPlanet com controles, fones e teclados" width="1000" height="563" loading="lazy"></div>
+    <div class="foto"><img src="/fachada-smartplanet-sao-jose.webp" alt="Fachada da loja SmartPlanet" width="800" height="600" loading="lazy"></div>
+    <div class="foto"><img src="/loja-smartplanet-capas-peliculas.webp" alt="Parede de capas e películas da loja SmartPlanet" width="800" height="600" loading="lazy"></div>
+    <div class="foto"><img src="/loja-smartplanet-linha-gamer.webp" alt="Linha gamer da SmartPlanet com controles, fones e teclados" width="1000" height="563" loading="lazy"></div>
   </div>
   <address class="endereco"><strong>SmartPlanet A Boutique do Celular</strong>Av. Josué di Bernardi, 34, Campinas, São José, SC</address>
   <iframe class="mapa" title="Mapa da loja SmartPlanet" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Av.+Josu%C3%A9+di+Bernardi,+34,+Campinas,+S%C3%A3o+Jos%C3%A9,+SC&output=embed"></iframe>
@@ -324,6 +352,7 @@ h1[data-msg]:active,h2[data-msg]:active,.sub[data-msg]:active,.faixa[data-msg]:a
 <a class="flutua" data-msg="Olá! Vi o site da SmartPlanet e quero fazer um pedido." href="https://wa.me/5548996628811?text=Ol%C3%A1%21%20Vi%20o%20site%20da%20SmartPlanet%20e%20quero%20fazer%20um%20pedido." aria-label="Pedir pelo WhatsApp"><svg aria-hidden="true"><use href="#i-wa"/></svg></a>
 
 <script>
+  var ADS_LABEL = '';
   var WA = 'https://wa.me/5548996628811?text=';
   var PADRAO = 'Olá! Vi o site da SmartPlanet e quero fazer um pedido.';
   function q(sel){ return document.querySelectorAll(sel); }
@@ -378,7 +407,8 @@ h1[data-msg]:active,h2[data-msg]:active,.sub[data-msg]:active,.faixa[data-msg]:a
   document.addEventListener('click', function(e){
     var el = e.target.closest('[data-msg]');
     if (!el) return;
-    window.dataLayer.push({event:'whatsapp_click', whatsapp_mensagem: el.dataset.msg, whatsapp_elemento: el.tagName.toLowerCase()});
+    window.dataLayer.push({event:'whatsapp_click', pagina:'vitrine', whatsapp_mensagem: el.dataset.msg, whatsapp_elemento: el.tagName.toLowerCase()});
+    if (ADS_LABEL && typeof gtag === 'function') gtag('event', 'conversion', {send_to: 'AW-18541289170/' + ADS_LABEL});
     if (el.tagName !== 'A') abrir(el.dataset.msg);
   });
   document.addEventListener('keydown', function(e){
@@ -387,6 +417,11 @@ h1[data-msg]:active,h2[data-msg]:active,.sub[data-msg]:active,.faixa[data-msg]:a
       e.preventDefault(); el.click();
     }
   });
+  ['gesturestart','gesturechange','gestureend'].forEach(function(t){
+    document.addEventListener(t, function(e){ e.preventDefault(); }, {passive:false});
+  });
+  document.addEventListener('touchmove', function(e){ if (e.touches.length > 1) e.preventDefault(); }, {passive:false});
+
 </script>
 </body>
 </html>
