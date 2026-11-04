@@ -25,6 +25,12 @@ function abrir(msg) {
 (function () {
   var video = document.querySelector(".topo-video");
   if (!video) return;
+  var fonte = video.querySelector("source");
+  var trilha = new Audio(fonte ? fonte.src : video.currentSrc);
+  trilha.loop = true;
+  trilha.preload = "auto";
+  trilha.volume = 1;
+
   video.controls = false;
   video.loop = true;
   video.removeAttribute("muted");
@@ -38,33 +44,46 @@ function abrir(msg) {
 
   var ultimoTempo = -1;
   var parado = 0;
+  var videoMudo = false;
 
   function encaixar() {
     if (!video.videoWidth || !video.videoHeight) return;
     video.style.aspectRatio = video.videoWidth + " / " + video.videoHeight;
   }
 
-  function som() {
-    video.muted = false;
+  function somNoVideo() {
+    video.removeAttribute("muted");
     video.defaultMuted = false;
+    video.muted = false;
     video.volume = 1;
+    videoMudo = false;
+    trilha.pause();
+  }
+
+  function tocarTrilha() {
+    if (video.readyState >= 1 && isFinite(video.currentTime)) {
+      try { trilha.currentTime = video.currentTime; } catch (e) {}
+    }
+    trilha.volume = 1;
+    trilha.muted = false;
+    var promessa = trilha.play();
+    if (promessa && promessa.catch) promessa.catch(function () {});
   }
 
   function tocar() {
-    som();
+    somNoVideo();
     var promessa = video.play();
-    if (!promessa || !promessa.catch) return;
-    promessa.catch(function () {
+    if (!promessa || !promessa.then) return;
+    promessa.then(function () {
+      somNoVideo();
+    }).catch(function (erro) {
+      if (erro && erro.name === "AbortError") return;
       video.muted = true;
+      video.defaultMuted = true;
+      videoMudo = true;
       var segunda = video.play();
-      if (!segunda || !segunda.then) return;
-      segunda.then(function () {
-        som();
-        if (video.paused) {
-          video.muted = true;
-          video.play();
-        }
-      }).catch(function () {});
+      if (segunda && segunda.catch) segunda.catch(function () {});
+      tocarTrilha();
     });
   }
 
@@ -72,16 +91,37 @@ function abrir(msg) {
   video.addEventListener("playing", function () {
     video.hidden = false;
     encaixar();
+    if (!videoMudo) somNoVideo();
+  });
+  video.addEventListener("timeupdate", function () {
+    if (!videoMudo || trilha.paused) return;
+    if (Math.abs(trilha.currentTime - video.currentTime) > 0.35) {
+      try { trilha.currentTime = video.currentTime; } catch (e) {}
+    }
   });
   video.addEventListener("contextmenu", function (e) {
     e.preventDefault();
   });
   video.addEventListener("ended", function () {
     video.currentTime = 0;
+    if (videoMudo) trilha.currentTime = 0;
     tocar();
   });
   document.addEventListener("visibilitychange", function () {
-    if (!document.hidden && video.paused) tocar();
+    if (document.hidden) return;
+    if (video.paused) tocar();
+    else if (videoMudo && trilha.paused) tocarTrilha();
+  });
+
+  function liberar() {
+    if (!video.muted && !videoMudo) return;
+    somNoVideo();
+    var promessa = video.play();
+    if (promessa && promessa.catch) promessa.catch(function () {});
+  }
+
+  ["pointerdown", "touchstart", "keydown"].forEach(function (tipo) {
+    document.addEventListener(tipo, liberar, true);
   });
 
   setInterval(function () {
@@ -89,6 +129,8 @@ function abrir(msg) {
       tocar();
       return;
     }
+    if (!videoMudo && video.muted) somNoVideo();
+    if (videoMudo && trilha.paused) tocarTrilha();
     if (!isFinite(video.duration)) return;
     if (Math.abs(video.currentTime - ultimoTempo) < 0.01 && video.readyState < 3) {
       parado += 1;

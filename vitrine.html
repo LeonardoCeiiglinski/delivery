@@ -88,7 +88,7 @@
   <p class="sub">Capinhas, películas, carregadores e fones. Peça pelo WhatsApp e receba em até 4 horas.</p>
   <a class="btn" data-msg="Olá! Vi o site da SmartPlanet e quero fazer um pedido." href="https://wa.me/5548996628811?text=Ol%C3%A1%21%20Vi%20o%20site%20da%20SmartPlanet%20e%20quero%20fazer%20um%20pedido."><svg aria-hidden="true"><use href="#i-wa"/></svg>Pedir pelo WhatsApp</a>
   <video class="topo-video" id="topo-video" autoplay playsinline preload="auto" disablepictureinpicture disableremoteplayback controlslist="nodownload nofullscreen noremoteplayback noplaybackrate" aria-hidden="true" tabindex="-1">
-    <source src="video/loja.mp4?v=5" type="video/mp4">
+    <source src="video/loja.mp4?v=6" type="video/mp4">
   </video>
   <script>
     (function () {
@@ -103,18 +103,7 @@
       video.autoplay = true;
       video.loop = true;
       var promessa = video.play();
-      if (promessa && promessa.catch) {
-        promessa.catch(function () {
-          video.muted = true;
-          var segunda = video.play();
-          if (segunda && segunda.then) {
-            segunda.then(function () {
-              video.muted = false;
-              video.volume = 1;
-            }).catch(function () {});
-          }
-        });
-      }
+      if (promessa && promessa.catch) promessa.catch(function () {});
     })();
   </script>
 </header>
@@ -611,6 +600,6 @@
   </div>
 </dialog>
 
-<script src="js/main.js?v=20"></script>
+<script src="js/main.js?v=21"></script>
 </body>
 </html>
