@@ -26,98 +26,70 @@ function abrir(msg) {
   var video = document.querySelector(".topo-video");
   if (!video) return;
   video.controls = false;
-  video.loop = false;
-  video.defaultMuted = true;
-  video.muted = true;
+  video.loop = true;
+  video.removeAttribute("muted");
+  video.defaultMuted = false;
+  video.muted = false;
   video.volume = 1;
   video.disablePictureInPicture = true;
   video.setAttribute("controlslist", "nodownload nofullscreen noremoteplayback noplaybackrate");
   video.playsInline = true;
   video.autoplay = true;
 
-  var desceu = false;
-  var desceuEm = 0;
   var ultimoTempo = -1;
   var parado = 0;
-  var tentouSom = 0;
+
+  function encaixar() {
+    if (!video.videoWidth || !video.videoHeight) return;
+    video.style.aspectRatio = video.videoWidth + " / " + video.videoHeight;
+  }
 
   function som() {
-    if (tentouSom > 3) return;
-    tentouSom += 1;
     video.muted = false;
     video.defaultMuted = false;
     video.volume = 1;
   }
 
   function tocar() {
-    var podeSom = tentouSom <= 3;
-    video.muted = true;
+    som();
     var promessa = video.play();
-    if (!promessa || !promessa.then) return;
-    promessa.then(function () {
-      if (podeSom) som();
-    }).catch(function () {
+    if (!promessa || !promessa.catch) return;
+    promessa.catch(function () {
       video.muted = true;
-      var deNovo = video.play();
-      if (deNovo && deNovo.catch) deNovo.catch(function () {});
+      var segunda = video.play();
+      if (!segunda || !segunda.then) return;
+      segunda.then(function () {
+        som();
+        if (video.paused) {
+          video.muted = true;
+          video.play();
+        }
+      }).catch(function () {});
     });
   }
 
-  function descer() {
-    if (desceu) return;
-    desceu = true;
-    desceuEm = Date.now();
-    video.loop = true;
-    var destino = document.getElementById("produtos");
-    if (!destino) return;
-    var topo = destino.getBoundingClientRect().top + window.scrollY;
-    if (window.scrollY > topo - 80) return;
-    var alvo = Math.max(0, topo - 8);
-    var ir = function () {
-      window.scrollTo({ top: alvo, behavior: "smooth" });
-    };
-    ir();
-    var n = 0;
-    var id = setInterval(function () {
-      n += 1;
-      if (n > 8 || window.scrollY > alvo * 0.45) clearInterval(id);
-      else ir();
-    }, 180);
-  }
-
+  video.addEventListener("loadedmetadata", encaixar);
   video.addEventListener("playing", function () {
     video.hidden = false;
+    encaixar();
   });
   video.addEventListener("contextmenu", function (e) {
     e.preventDefault();
   });
   video.addEventListener("ended", function () {
-    descer();
-    setTimeout(function () {
-      video.currentTime = 0.001;
-      tocar();
-    }, 900);
+    video.currentTime = 0;
+    tocar();
   });
   document.addEventListener("visibilitychange", function () {
     if (!document.hidden && video.paused) tocar();
   });
 
   setInterval(function () {
-    if (!isFinite(video.duration)) return;
-    if (!desceu && video.currentTime > video.duration - 0.2) {
-      if (video.ended || video.paused) descer();
-      return;
-    }
-    if (desceu && Date.now() - desceuEm < 1200) return;
-    if (desceu && video.currentTime > video.duration - 0.2) {
-      video.currentTime = 0.001;
-      if (video.paused) tocar();
-      return;
-    }
     if (video.paused || video.ended) {
       tocar();
       return;
     }
+    if (!isFinite(video.duration)) return;
     if (Math.abs(video.currentTime - ultimoTempo) < 0.01 && video.readyState < 3) {
       parado += 1;
       if (parado >= 3) tocar();
@@ -127,6 +99,7 @@ function abrir(msg) {
     ultimoTempo = video.currentTime;
   }, 700);
 
+  encaixar();
   tocar();
 })();
 

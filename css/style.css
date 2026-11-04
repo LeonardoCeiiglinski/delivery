@@ -207,8 +207,7 @@ footer {
   margin: 22px auto 0;
   border-radius: var(--raio);
   background: #000;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
+  object-fit: contain;
   pointer-events: none;
   -webkit-user-select: none;
   user-select: none;

@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=13">
+<link rel="stylesheet" href="css/style.css?v=14">
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18541289170"></script>
@@ -87,21 +87,34 @@
   <h1>Acessórios pro seu celular com entrega rápida em São José e Grande Florianópolis</h1>
   <p class="sub">Capinhas, películas, carregadores e fones. Peça pelo WhatsApp e receba em até 4 horas.</p>
   <a class="btn" data-msg="Olá! Vi o site da SmartPlanet e quero fazer um pedido." href="https://wa.me/5548996628811?text=Ol%C3%A1%21%20Vi%20o%20site%20da%20SmartPlanet%20e%20quero%20fazer%20um%20pedido."><svg aria-hidden="true"><use href="#i-wa"/></svg>Pedir pelo WhatsApp</a>
-  <video class="topo-video" id="topo-video" autoplay muted playsinline preload="auto" disablepictureinpicture disableremoteplayback controlslist="nodownload nofullscreen noremoteplayback noplaybackrate" aria-hidden="true" tabindex="-1">
-    <source src="video/loja.mp4?v=4" type="video/mp4">
+  <video class="topo-video" id="topo-video" autoplay playsinline preload="auto" disablepictureinpicture disableremoteplayback controlslist="nodownload nofullscreen noremoteplayback noplaybackrate" aria-hidden="true" tabindex="-1">
+    <source src="video/loja.mp4?v=5" type="video/mp4">
   </video>
   <script>
     (function () {
       var video = document.getElementById("topo-video");
       if (!video) return;
       video.controls = false;
-      video.muted = true;
-      video.defaultMuted = true;
+      video.removeAttribute("muted");
+      video.defaultMuted = false;
+      video.muted = false;
+      video.volume = 1;
       video.playsInline = true;
       video.autoplay = true;
-      video.loop = false;
+      video.loop = true;
       var promessa = video.play();
-      if (promessa && promessa.catch) promessa.catch(function () {});
+      if (promessa && promessa.catch) {
+        promessa.catch(function () {
+          video.muted = true;
+          var segunda = video.play();
+          if (segunda && segunda.then) {
+            segunda.then(function () {
+              video.muted = false;
+              video.volume = 1;
+            }).catch(function () {});
+          }
+        });
+      }
     })();
   </script>
 </header>
@@ -598,6 +611,6 @@
   </div>
 </dialog>
 
-<script src="js/main.js?v=19"></script>
+<script src="js/main.js?v=20"></script>
 </body>
 </html>
