@@ -1,6 +1,6 @@
 var WA = "https://wa.me/5548996628811?text=";
 var PADRAO = "Olá! Vi o site da SmartPlanet e quero fazer um pedido.";
-var CONVERSAO = "AW-XXXXXXXXXX/ROTULO";
+var CONVERSAO = "AW-18541289170/Z5tNCODn170dENK9lolF";
 
 function q(sel) {
   return document.querySelectorAll(sel);
